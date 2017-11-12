@@ -41,6 +41,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pages\ChartsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -58,6 +62,10 @@
       <DependentUpon>DeviceMotionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\DeviceMotionViewModel.cs" />
+    <Compile Include="Pages\ChartsPage.xaml.cs">
+      <DependentUpon>ChartsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ChartsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -89,6 +97,15 @@
     </Reference>
     <Reference Include="DeviceMotion.Plugin">
       <HintPath>..\packages\Xam.Plugin.DeviceMotion.1.1.2\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\DeviceMotion.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp">
+      <HintPath>..\packages\SkiaSharp.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Forms">
+      <HintPath>..\packages\SkiaSharp.Views.Forms.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.Views.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microcharts.Forms">
+      <HintPath>..\packages\Microcharts.Forms.0.6.1\lib\portable-net45+win8+wpa81+wp8\Microcharts.Forms.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

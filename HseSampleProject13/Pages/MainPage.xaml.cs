@@ -16,8 +16,15 @@ namespace HseSampleProject13
         {
             await Navigation.PushAsync(new GeolocationPage());
         }
-        async void Motion(object sender, EventArgs e){
+
+        async void Motion(object sender, EventArgs e)
+        {
             await Navigation.PushAsync(new DeviceMotionPage());
+        }
+
+        async void Charts(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ChartsPage());
         }
     }
 

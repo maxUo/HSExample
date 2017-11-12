@@ -26,11 +26,15 @@ namespace HseSampleProject13.ViewModel
 
             CrossDeviceMotion.Current.SensorValueChanged += (s, a) =>
             {
+                //Есть разные сенсоры, аля Компас, Гироскоп или Магнитометр
+                //В зависимости от того, что вам нужно, вызывайте
+                //Разные MotionSensorType.Some
+
                 if (a.SensorType == MotionSensorType.Accelerometer)
                 {
-                    XField = FAbs(((MotionVector)a.Value).X) / 36;
-                    YField = FAbs(((MotionVector)a.Value).Y) / 36;
-                    ZField = FAbs(((MotionVector)a.Value).Z) / 36;
+                    XField = FAbs(((MotionVector) a.Value).X) / 36;
+                    YField = FAbs(((MotionVector) a.Value).Y) / 36;
+                    ZField = FAbs(((MotionVector) a.Value).Z) / 36;
                 }
             };
         }
