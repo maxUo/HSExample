@@ -7,6 +7,8 @@ namespace HseSampleProject13
 {
     public partial class MainPage : ContentPage
     {
+        private static MainViewModel VM = new MainViewModel();
+
         public MainPage()
         {
             InitializeComponent();
@@ -25,6 +27,11 @@ namespace HseSampleProject13
         async void Charts(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ChartsPage());
+        }
+
+        async void Owls(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OwlsPage());
         }
     }
 

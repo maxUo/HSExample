@@ -25,6 +25,14 @@
                 <Button
                     Text="Графики"
                     Clicked="Charts" />
+                <Label
+                    Text="Когнитивки MS"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    />
+                <Button
+                    Text="Совушки"
+                    Clicked="Owls"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

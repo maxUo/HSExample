@@ -8,5 +8,13 @@
 	<uses-permission android:name="android.permission.CONTROL_LOCATION_UPDATES" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.LOCATION_HARDWARE" />
-	<application android:label="HseSampleProject13"></application>
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.CAPTURE_VIDEO_OUTPUT" />
+	<application android:label="HseSampleProject13" android:icon="@drawable/icon">
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="com.mspworkgroup.HseSampleProject13.fileprovider" android:exported="false" android:grantUriPermissions="true">
+			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
+		</provider>
+	</application>
 </manifest>
