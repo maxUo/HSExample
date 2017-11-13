@@ -28,11 +28,13 @@
                 <Label
                     Text="Когнитивки MS"
                     FontSize="Medium"
-                    HorizontalOptions="Center"
-                    />
+                    HorizontalOptions="Center" />
                 <Button
                     Text="Совушки"
-                    Clicked="Owls"/>
+                    Clicked="Owls" />
+                <Button
+                    Text="Vision"
+                    Clicked="Vision" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

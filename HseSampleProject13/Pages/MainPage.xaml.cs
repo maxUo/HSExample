@@ -33,6 +33,11 @@ namespace HseSampleProject13
         {
             await Navigation.PushAsync(new OwlsPage());
         }
+
+        void Vision(object sender,EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     [AddINotifyPropertyChangedInterface]

@@ -8,7 +8,7 @@
         <StackLayout>
             <Label
                 Text="Выберите фото для классификатора"
-                FontSize="Large"
+                FontSize="Medium"
                 HorizontalOptions="Center" />
             <Image
                 Source="{Binding ImageSource}"
@@ -22,8 +22,13 @@
                 FontSize="{Binding ResultFontSize}" />
             <Button
                 VerticalOptions="End"
-                Text="Выбрать"
+                Text="Выбрать Фото"
                 Command="{Binding GetImageAndRunCommand}">
+            </Button>
+            <Button
+                VerticalOptions="End"
+                Text="Сделать Фото"
+                Command="{Binding SetImageAndRunCommand}">
             </Button>
         </StackLayout>
     </ScrollView>
