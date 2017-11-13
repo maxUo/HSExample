@@ -10,9 +10,9 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using HseSampleProject13.CogntiveServices;
 
 namespace HseSampleProject13.ViewModel
 {
@@ -24,8 +24,6 @@ namespace HseSampleProject13.ViewModel
             GetImageAndRunCommand = new Command(GetImageAndRun);
             SetImageAndRunCommand = new Command(SetImageAndRun);
         }
-
-
 
         #region Fields
         public ImageSource ImageSource { get; set; }
@@ -45,7 +43,7 @@ namespace HseSampleProject13.ViewModel
             {
                 ResultIsVisible = false;
                 IndicatorIsRunning = true;
-                ResultFontSize = 22;
+                ResultFontSize = 16;
                 var cameraStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
                 if (cameraStatus != PermissionStatus.Granted)
                 {
@@ -64,7 +62,8 @@ namespace HseSampleProject13.ViewModel
                     }
                     else
                     {
-                        var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions{
+                        var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+                        {
                             Directory = "SampleDirectory",
                             Name = "test.jpg"
                         });
@@ -74,8 +73,19 @@ namespace HseSampleProject13.ViewModel
                         ImageSource = ImageSource.FromFile(file.Path);
                         var temp = await MakePredictionRequest(file.Path);
 
+                        //Делает махинации с Vision по сделанной фото
+                        Vision t = new Vision();
+                        ResultText = await t.MakeSomeSummary(file.GetStream());
+
+                        //Здесь я подумал, что делать еще одну страницу мне лень
+                        //Ибо функционал будет отличаться на 2 строчки,
+                        //Поэтому чтобы распознавать совушек раскоментируйте нижнюю
+                        //А чтобы оставить Vision не трогайте верхние 2
+
+                        //Делает махинации с совушками по сделанной фото
+                        //SetPropsAfterPredictin(temp);
+
                         file.Dispose();
-                        SetPropsAfterPredictin(temp);
                     }
                 }
                 ResultIsVisible = true;
@@ -97,7 +107,7 @@ namespace HseSampleProject13.ViewModel
             {
                 ResultIsVisible = false;
                 IndicatorIsRunning = true;
-                ResultFontSize = 22;
+                ResultFontSize = 16;
                 var storageStatus = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Storage);
                 if (storageStatus != PermissionStatus.Granted)
                 {

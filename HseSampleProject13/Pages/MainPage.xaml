@@ -30,11 +30,8 @@
                     FontSize="Medium"
                     HorizontalOptions="Center" />
                 <Button
-                    Text="Совушки"
+                    Text="Совушки и Vision"
                     Clicked="Owls" />
-                <Button
-                    Text="Vision"
-                    Clicked="Vision" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
